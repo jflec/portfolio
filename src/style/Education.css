@@ -1,0 +1,47 @@
+#education-container {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+
+  display: flex;
+  z-index: 4;
+}
+
+.education-container-less {
+  width: 30%;
+  padding: 12px;
+  font-size: 36px;
+  padding: 40px;
+}
+
+.education-container-more {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 40px;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 1.25;
+  gap: 40px;
+}
+
+.education-name {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+.education-date {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.education-desc {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+@media only screen and (max-width: 1040px) {
+  #education-container {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,61 @@
+#experience-container {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+
+  display: flex;
+  z-index: 4;
+}
+
+.experience-container-less {
+  width: 30%;
+  padding: 12px;
+  font-size: 36px;
+  padding: 40px;
+}
+
+.experience-container-more {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 40px;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 1.25;
+  gap: 40px;
+}
+
+.experience-name {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+.experience-title {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.bulletpoint-container {
+  margin-top: 12px;
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+}
+
+.bulletpoint {
+  font-size: 20px;
+  font-weight: 200;
+  position: relative;
+  margin-left: 20px;
+}
+
+.bulletpoint::before {
+  content: "▹";
+  position: absolute;
+  left: -20px;
+}
+
+@media only screen and (max-width: 1040px) {
+  #experience-container {
+    flex-direction: column;
+  }
+}

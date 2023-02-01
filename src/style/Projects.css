@@ -1,0 +1,53 @@
+#projects-container {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+
+  display: flex;
+  z-index: 4;
+}
+
+.projects-container-less {
+  width: 30%;
+  padding: 12px;
+  font-size: 36px;
+  padding: 40px;
+}
+
+.projects-container-more {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 40px;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 1.25;
+  gap: 40px;
+}
+
+.project-name {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.project-desc {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.links-container {
+  margin-top: 32px;
+  display: flex;
+  gap: 12px;
+  font-size: 20px;
+}
+
+.links-container a {
+  text-decoration: none !important ;
+}
+
+@media only screen and (max-width: 1040px) {
+  #projects-container {
+    flex-direction: column;
+  }
+}
