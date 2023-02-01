@@ -40,17 +40,11 @@ export default function Renderer() {
     <div id="canvas-container">
       <Suspense fallback={null}>
         <Canvas shadows>
-          <OrbitControls
-            enableZoom={false}
-            enablePan={false}
-            enableRotate={false}
-          />
           <Effects disableGamma>
             <unrealBloomPass threshold={1} strength={1} radius={1.2} />
           </Effects>
           <ScrollControls pages={isMobile ? 3 : 2.435}>
             <DynamicCamera />
-
             <Float
               speed={1.25}
               floatingRange={[-0.0125, 0.0125]}
@@ -103,6 +97,7 @@ function DynamicCamera() {
   const cameraRef = useRef();
 
   useFrame(() => {
+    cameraRef.current.lookAt(0, 0, data.range(0, 1) / 3);
     cameraRef.current.position.z = -data.range(0, 1) + 2;
     cameraRef.current.position.x = data.range(0, 1) * 1.55;
   });
