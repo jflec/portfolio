@@ -13,7 +13,7 @@ export default function About() {
           I'm a full-stack software engineer with an eye for design and a
           passion for continuous learning. My interest in game development
           ignited my love for coding and led me to pursue a certificate in
-          Computer Programming and graduate from the App Academy. In my leisure
+          Computer Programming and graduate from App Academy. In my leisure
           time, you can find me gaming with friends, listening to music,
           streaming on Twitch, and updating my portfolio site.
         </p>
