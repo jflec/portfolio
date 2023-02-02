@@ -12,10 +12,10 @@ export default function About() {
         <p>
           I'm a full-stack software engineer with an eye for design and a
           passion for continuous learning. My interest in game development
-          ignited my love for coding and led me to pursue a certifcate in
+          ignited my love for coding and led me to pursue a certificate in
           Computer Programming and graduate from the App Academy. In my leisure
-          time, I enjoy gaming with friends, listening to music, streaming on
-          Twitch, and updating my portfolio site.
+          time, you can find me gaming with friends, listening to music,
+          streaming on Twitch, and updating my portfolio site.
         </p>
         <div className="about-links-container">
           <a href="https://github.com/JFlec" target="_blank">

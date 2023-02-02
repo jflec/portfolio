@@ -24,12 +24,19 @@ export default function Renderer() {
   return (
     <div id="canvas-container">
       <Suspense fallback={null}>
-        <Canvas>
-          <Cloud opacity={0.1} speed={0.25} width={6} depth={2} segments={10} />
+        <Canvas gl={{ antialias: false }} dpr={[1, 1.5]}>
           <Effects disableGamma>
             <unrealBloomPass threshold={1} strength={1} radius={1.2} />
           </Effects>
-          <ScrollControls pages={2.45} damping={0.1}>
+          <ScrollControls pages={3}>
+            <Cloud
+              opacity={0.1}
+              speed={0.25}
+              width={6}
+              depth={2}
+              segments={10}
+            />
+
             <DynamicCamera />
             <Float
               speed={1.25}
