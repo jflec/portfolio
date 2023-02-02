@@ -36,6 +36,7 @@
 
 .about-links-container a {
   text-decoration: none !important ;
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 1040px) {

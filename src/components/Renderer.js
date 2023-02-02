@@ -59,7 +59,11 @@ function DynamicScroll({ children }) {
   const { width, height } = useThree((state) => state.viewport);
   const [pages, setPages] = useState(width);
 
-  return <ScrollControls pages={2.45}>{children}</ScrollControls>;
+  return (
+    <ScrollControls pages={2.45} distance={0.75}>
+      {children}
+    </ScrollControls>
+  );
 }
 
 function DynamicCamera() {
