@@ -60,7 +60,7 @@ function DynamicScroll({ children }) {
   const [pages, setPages] = useState(width);
 
   return (
-    <ScrollControls pages={2.45} damping={0}>
+    <ScrollControls pages={2.45} damping={0.125}>
       {children}
     </ScrollControls>
   );
