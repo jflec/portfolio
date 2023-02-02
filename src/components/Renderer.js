@@ -22,7 +22,7 @@ extend({ UnrealBloomPass });
 export default function Renderer() {
   return (
     <div id="canvas-container">
-      <Canvas gl={{ antialias: false }} dpr={[1, 1.5]}>
+      <Canvas>
         <Effects disableGamma>
           <unrealBloomPass threshold={1} strength={1} radius={1.2} />
         </Effects>
@@ -60,7 +60,7 @@ function DynamicScroll({ children }) {
   const [pages, setPages] = useState(width);
 
   return (
-    <ScrollControls pages={2.45} distance={0.75}>
+    <ScrollControls pages={2.45} distance={0.75} damping={0.125}>
       {children}
     </ScrollControls>
   );
