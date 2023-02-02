@@ -1,7 +1,6 @@
-import { Canvas, extend, useFrame } from "@react-three/fiber";
+import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
 import {
   PerspectiveCamera,
-  Float,
   Effects,
   Scroll,
   ScrollControls,
@@ -9,7 +8,7 @@ import {
   useScroll,
 } from "@react-three/drei";
 import { UnrealBloomPass } from "three-stdlib";
-import { useRef, Suspense } from "react";
+import { useRef, Suspense, useState } from "react";
 
 import { Statue } from "./Statue";
 import Portfolio from "./Portfolio";
@@ -23,48 +22,44 @@ extend({ UnrealBloomPass });
 export default function Renderer() {
   return (
     <div id="canvas-container">
-      <Suspense fallback={null}>
-        <Canvas gl={{ antialias: false }} dpr={[1, 1.5]}>
-          <Effects disableGamma>
-            <unrealBloomPass threshold={1} strength={1} radius={1.2} />
-          </Effects>
-          <ScrollControls pages={3}>
-            <Cloud
-              opacity={0.1}
-              speed={0.25}
-              width={6}
-              depth={2}
-              segments={10}
-            />
-
-            <DynamicCamera />
-            <Float
-              speed={1.25}
-              floatingRange={[-0.0125, 0.0125]}
-              floatIntensity={0.25}
-            >
-              <Shape color={[4, 0.1, 0]} position={[0, 0, -1]}>
-                <ringGeometry args={[0.8, 0.82, 4]} />
-              </Shape>
-              <Shape color={[4, 0.1, 0]} position={[0, 0, -1.1]}>
-                <ringGeometry args={[0.72, 0.8, 4]} />
-              </Shape>
-              <Statue position={[0.05, -0.5, 0]}></Statue>
-              <pointLight
-                color={"white"}
-                intensity={0.085}
-                position={[0, 0, 2]}
-              />
-            </Float>
-            <Scroll html>
-              <Landing />
-              <Portfolio />
-            </Scroll>
-          </ScrollControls>
-        </Canvas>
-      </Suspense>
+      <Canvas gl={{ antialias: false }} dpr={[1, 1.5]}>
+        <Effects disableGamma>
+          <unrealBloomPass threshold={1} strength={1} radius={1.2} />
+        </Effects>
+        <DynamicScroll>
+          <Cloud
+            opacity={0.085}
+            speed={0.1}
+            width={6}
+            depth={1.5}
+            segments={10}
+          />
+          <DynamicCamera />
+          <Suspense fallback={null}>
+            <Shape color={[4, 0.1, 0]} position={[0, 0, -1]}>
+              <ringGeometry args={[0.8, 0.82, 4]} />
+            </Shape>
+            <Shape color={[4, 0.1, 0]} position={[0, 0, -1.1]}>
+              <ringGeometry args={[0.72, 0.8, 4]} />
+            </Shape>
+            <Statue position={[0.05, -0.5, 0]}></Statue>
+          </Suspense>
+          <pointLight color={"white"} intensity={0.085} position={[0, 0, 2]} />
+          <Scroll html>
+            <Landing />
+            <Portfolio />
+          </Scroll>
+        </DynamicScroll>
+      </Canvas>
     </div>
   );
+}
+
+function DynamicScroll({ children }) {
+  const { width, height } = useThree((state) => state.viewport);
+  const [pages, setPages] = useState(width);
+
+  return <ScrollControls pages={2.45}>{children}</ScrollControls>;
 }
 
 function DynamicCamera() {
