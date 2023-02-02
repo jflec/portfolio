@@ -1,6 +1,5 @@
 import { Canvas, extend, useFrame } from "@react-three/fiber";
 import {
-  OrbitControls,
   PerspectiveCamera,
   Float,
   Effects,
@@ -10,7 +9,7 @@ import {
   useScroll,
 } from "@react-three/drei";
 import { UnrealBloomPass } from "three-stdlib";
-import { useRef, useState, useEffect, Suspense } from "react";
+import { useRef, Suspense } from "react";
 
 import { Statue } from "./Statue";
 import Portfolio from "./Portfolio";
@@ -22,28 +21,15 @@ import "../style/Renderer.css";
 extend({ UnrealBloomPass });
 
 export default function Renderer() {
-  const [width, setWidth] = useState(window.innerWidth);
-
-  function handleWindowSizeChange() {
-    setWidth(window.innerWidth);
-  }
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
-    return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
-    };
-  }, []);
-
-  const isMobile = width <= 1040;
-
   return (
     <div id="canvas-container">
       <Suspense fallback={null}>
-        <Canvas shadows>
+        <Canvas>
+          <Cloud opacity={0.1} speed={0.25} width={6} depth={2} segments={10} />
           <Effects disableGamma>
             <unrealBloomPass threshold={1} strength={1} radius={1.2} />
           </Effects>
-          <ScrollControls pages={isMobile ? 3 : 2.435}>
+          <ScrollControls pages={2.45} damping={0.1}>
             <DynamicCamera />
             <Float
               speed={1.25}
@@ -56,25 +42,7 @@ export default function Renderer() {
               <Shape color={[4, 0.1, 0]} position={[0, 0, -1.1]}>
                 <ringGeometry args={[0.72, 0.8, 4]} />
               </Shape>
-            </Float>
-
-            <Float
-              speed={0.25}
-              floatingRange={[-0.0125, 0.0125]}
-              floatIntensity={0.25}
-            ></Float>
-
-            <Cloud
-              opacity={0.085}
-              speed={0.25}
-              width={6}
-              depth={1.5}
-              segments={20}
-            />
-
-            <Float speed={0.75} floatingRange={[-0.0125, 0.0125]}>
               <Statue position={[0.05, -0.5, 0]}></Statue>
-
               <pointLight
                 color={"white"}
                 intensity={0.085}
@@ -106,7 +74,6 @@ function DynamicCamera() {
     <PerspectiveCamera
       ref={cameraRef}
       makeDefault
-      far={100}
       near={0.1}
       fov={60}
       position={[0, 0, 2]}
@@ -126,7 +93,7 @@ function Shape({ children, color, ...props }) {
   });
 
   return (
-    <mesh {...props} castShadow receiveShadow>
+    <mesh {...props}>
       {children}
       <meshBasicMaterial
         color={color}
