@@ -2,9 +2,7 @@
   position: relative;
   width: 100vw;
   max-width: 100%;
-
   display: flex;
-  z-index: 4;
 }
 
 .education-container-less {
@@ -40,8 +38,12 @@
   font-weight: 200;
 }
 
-@media only screen and (max-width: 1040px) {
+@media only screen and (max-width: 940px) {
   #education-container {
     flex-direction: column;
+  }
+
+  .education-container-more {
+    width: calc(100% - 80px);
   }
 }

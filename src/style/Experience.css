@@ -2,9 +2,7 @@
   position: relative;
   width: 100vw;
   max-width: 100%;
-
   display: flex;
-  z-index: 4;
 }
 
 .experience-container-less {
@@ -54,8 +52,12 @@
   left: -20px;
 }
 
-@media only screen and (max-width: 1040px) {
+@media only screen and (max-width: 940px) {
   #experience-container {
     flex-direction: column;
+  }
+
+  .experience-container-more {
+    width: calc(100% - 80px);
   }
 }

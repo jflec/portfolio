@@ -14,8 +14,8 @@ export default function About() {
           passion for continuous learning. My interest in game development
           ignited my love for coding and led me to pursue a certificate in
           Computer Programming and graduate from App Academy. In my leisure
-          time, you can find me gaming with friends, listening to music,
-          streaming on Twitch, and updating my portfolio site.
+          time, you can find me gaming with friends, listening to music, and
+          updating my portfolio site.
         </p>
         <div className="about-links-container">
           <a href="https://github.com/JFlec" target="_blank">

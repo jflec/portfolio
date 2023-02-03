@@ -3,7 +3,6 @@
   width: 100vw;
   max-width: 100%;
   display: flex;
-  z-index: 4;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
 }
@@ -39,8 +38,12 @@
   font-weight: 400;
 }
 
-@media only screen and (max-width: 1040px) {
+@media only screen and (max-width: 940px) {
   #about-container {
     flex-direction: column;
+  }
+
+  .about-container-more {
+    width: calc(100% - 80px);
   }
 }

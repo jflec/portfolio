@@ -1,79 +1,64 @@
-import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
-import {
-  PerspectiveCamera,
-  Effects,
-  Scroll,
-  ScrollControls,
-  Cloud,
-  useScroll,
-} from "@react-three/drei";
+import { Canvas, extend, useFrame } from "@react-three/fiber";
+import { PerspectiveCamera, Effects, Cloud, Float } from "@react-three/drei";
 import { UnrealBloomPass } from "three-stdlib";
-import { useRef, Suspense, useState } from "react";
-
+import { useRef, Suspense } from "react";
 import { Statue } from "./Statue";
-import Portfolio from "./Portfolio";
-import Landing from "./Landing";
 
 import "../style/Landing.css";
 import "../style/Renderer.css";
 
 extend({ UnrealBloomPass });
 
-export default function Renderer() {
+export default function Renderer({ scrollPercentage }) {
   return (
     <div id="canvas-container">
       <Canvas>
+        <DynamicCamera scrollPercentage={scrollPercentage} />
         <Effects disableGamma>
           <unrealBloomPass threshold={1} strength={1} radius={1.2} />
         </Effects>
-        <DynamicScroll>
-          <Cloud
-            opacity={0.085}
-            speed={0.1}
-            width={6}
-            depth={1.5}
-            segments={10}
-          />
-          <DynamicCamera />
-          <Suspense fallback={null}>
-            <Shape color={[4, 0.1, 0]} position={[0, 0, -1]}>
+        <Cloud
+          opacity={0.085}
+          speed={0.125}
+          width={10}
+          depth={1.3 + scrollPercentage / 100}
+          segments={30}
+        />
+        <Suspense fallback={null}>
+          <Float speed={1} rotationIntensity={0.5} floatIntensity={0.4}>
+            <Shape
+              color={[4, 0.1, 0]}
+              position={[0, 0, -1]}
+              scrollPercentage={scrollPercentage}
+            >
               <ringGeometry args={[0.8, 0.82, 4]} />
             </Shape>
-            <Shape color={[4, 0.1, 0]} position={[0, 0, -1.1]}>
+            <Shape
+              color={[4, 0.1, 0]}
+              position={[0, 0, -1.1]}
+              scrollPercentage={scrollPercentage}
+            >
               <ringGeometry args={[0.72, 0.8, 4]} />
             </Shape>
-            <Statue position={[0.05, -0.5, 0]}></Statue>
-          </Suspense>
-          <pointLight color={"white"} intensity={0.085} position={[0, 0, 2]} />
-          <Scroll html>
-            <Landing />
-            <Portfolio />
-          </Scroll>
-        </DynamicScroll>
+          </Float>
+
+          <Float speed={0.75} rotationIntensity={0.5} floatIntensity={0.4}>
+            <Statue position={[0.05, -0.5, 0]} />
+          </Float>
+        </Suspense>
+        <pointLight color={"white"} intensity={0.085} position={[0, 0, 2]} />
       </Canvas>
     </div>
   );
 }
 
-function DynamicScroll({ children }) {
-  const { width, height } = useThree((state) => state.viewport);
-  const [pages, setPages] = useState(width);
-
-  return (
-    <ScrollControls pages={2.45} damping={0.125}>
-      {children}
-    </ScrollControls>
-  );
-}
-
-function DynamicCamera() {
-  const data = useScroll();
+function DynamicCamera({ scrollPercentage }) {
   const cameraRef = useRef();
 
   useFrame(() => {
-    cameraRef.current.lookAt(0, 0, data.range(0, 1) / 3);
-    cameraRef.current.position.z = -data.range(0, 1) + 2;
-    cameraRef.current.position.x = data.range(0, 1) * 1.55;
+    cameraRef.current.lookAt(-scrollPercentage / 200, 0, 0);
+    cameraRef.current.position.x = scrollPercentage / 50;
+    cameraRef.current.position.z = 2 - scrollPercentage / 150;
   });
 
   return (
@@ -88,14 +73,13 @@ function DynamicCamera() {
   );
 }
 
-function Shape({ children, color, ...props }) {
-  const data = useScroll();
+function Shape({ children, color, scrollPercentage, ...props }) {
   const shapeRef = useRef();
   const lightRef = useRef();
 
   useFrame(() => {
-    shapeRef.current.color.b = data.range(0, 1) * 1;
-    lightRef.current.color.b = data.range(0, 1) * 1;
+    shapeRef.current.color.b = scrollPercentage / 100;
+    lightRef.current.color.b = scrollPercentage / 100;
   });
 
   return (
@@ -109,7 +93,7 @@ function Shape({ children, color, ...props }) {
       />
       <pointLight
         color={color}
-        intensity={1}
+        intensity={scrollPercentage / 100 + 0.05}
         position={[0, 0, 0]}
         ref={lightRef}
       />

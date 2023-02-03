@@ -2,9 +2,7 @@
   position: relative;
   width: 100vw;
   max-width: 100%;
-
   display: flex;
-  z-index: 4;
 }
 
 .projects-container-less {
@@ -47,8 +45,12 @@
   font-weight: 400;
 }
 
-@media only screen and (max-width: 1040px) {
+@media only screen and (max-width: 940px) {
   #projects-container {
     flex-direction: column;
+  }
+
+  .projects-container-more {
+    width: calc(100% - 80px);
   }
 }
