@@ -1,0 +1,11 @@
+@media only screen and (max-width: 940px) {
+  .preview-image {
+    display: none;
+  }
+}
+
+.preview-image {
+  width: 360px;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+}

@@ -8,7 +8,7 @@ export default function Landing() {
         <h1>FELICIDARIO</h1>
       </div>
       <div id="title-container">
-        <h2>FULLSTACK DEVELOPER</h2>
+        <h2>SOFTWARE ENGINEER</h2>
       </div>
     </div>
   );

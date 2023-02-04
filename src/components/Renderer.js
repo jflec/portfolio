@@ -26,7 +26,7 @@ export default function Renderer({ scrollPercentage }) {
         </Effects>
         <Cloud
           opacity={0.085}
-          speed={0.15}
+          speed={0.6}
           width={10}
           depth={1.3 + scrollPercentage / 100}
           segments={30}

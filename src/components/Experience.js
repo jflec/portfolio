@@ -1,6 +1,8 @@
 import "../style/Experience.css";
 
-export default function Experience() {
+import SC from "../sc.mp4";
+
+export default function Experience({ setImage, setVisible }) {
   const experience = [
     {
       name: "Sock Club",
@@ -11,6 +13,7 @@ export default function Experience() {
         "Developed a server-side service that generates 3D-rendered screenshots of an image on a sock using the provided image as input.",
         "Worked with designers to develop internal tools and improve user experience.",
       ],
+      imageUrl: SC,
     },
   ];
 
@@ -22,7 +25,17 @@ export default function Experience() {
       <div className="experience-container-more">
         {experience.map((experience, idx) => {
           return (
-            <div className="experience-container" key={idx}>
+            <div
+              className="experience-container"
+              key={idx}
+              onMouseEnter={() => {
+                setVisible(true);
+                setImage(experience.imageUrl);
+              }}
+              onMouseLeave={() => {
+                setVisible(false);
+              }}
+            >
               <h1 className="experience-name">{experience.name}</h1>
               <h2 className="experience-title">{experience.title}</h2>
               <div className="bulletpoint-container">

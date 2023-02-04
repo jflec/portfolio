@@ -1,6 +1,10 @@
 import "../style/Projects.css";
 
-export default function Projects() {
+import RPB from "../rpb.mp4";
+import AW from "../aw.mp4";
+import SG from "../sg.mp4";
+
+export default function Projects({ setImage, setVisible }) {
   const projects = [
     {
       name: "RedPlayButton",
@@ -18,6 +22,7 @@ export default function Projects() {
         "PostgreSQL",
         "AWS",
       ],
+      videoUrl: RPB,
     },
 
     {
@@ -36,6 +41,7 @@ export default function Projects() {
         "Node",
         "WebSocket",
       ],
+      videoUrl: AW,
     },
 
     {
@@ -44,6 +50,7 @@ export default function Projects() {
       github_url: "https://github.com/JFlec/Slime-Guy",
       desc: "A fun and addictive platformer game inspired by Doodle Jump, where the player must navigate through the dangerous realms of hell while shooting and defeating a variety of enemies on their ascent.",
       skills: ["Javascript", "HTMl", "CSS"],
+      videoUrl: SG,
     },
   ];
   return (
@@ -54,7 +61,17 @@ export default function Projects() {
       <div className="projects-container-more">
         {projects.map((project, idx) => {
           return (
-            <div className="project-container" key={idx}>
+            <div
+              className="project-container"
+              key={idx}
+              onMouseEnter={() => {
+                setVisible(true);
+                setImage(project.videoUrl);
+              }}
+              onMouseLeave={() => {
+                setVisible(false);
+              }}
+            >
               <h1 className="project-name">{project.name}</h1>
               <h2 className="project-desc hover">{project.desc}</h2>
 

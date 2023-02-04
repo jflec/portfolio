@@ -11,7 +11,7 @@ export default function About() {
         <h1 className="about-title">Hi, I'm Joseph</h1>
         <p>
           <span className="hover">
-            I'm a full-stack software engineer with an eye for design and a
+            I'm a fullstack software engineer with an eye for design and a
             passion for continuous learning.
           </span>{" "}
           <span className="hover">
@@ -20,8 +20,8 @@ export default function About() {
             App Academy.
           </span>{" "}
           <span className="hover">
-            In my leisure time, you can find me gaming with friends, listening
-            to music, and updating my portfolio site.
+            In my free time, you can find me gaming with friends, listening to
+            music, and updating my portfolio site.
           </span>
         </p>
         <div className="about-links-container">
