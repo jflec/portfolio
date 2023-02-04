@@ -10,8 +10,6 @@ export function Statue(props) {
     <group {...props} dispose={null}>
       <group position={[0, 0, 0]} rotation={[3.13, -1, 0]} scale={0.005}>
         <mesh
-          castShadow
-          receiveShadow
           geometry={nodes.Object_2.geometry}
           material={materials.material_0}
         />

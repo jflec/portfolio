@@ -12,6 +12,16 @@
   padding: 40px;
 }
 
+.hover {
+  transition: all 0.2s;
+  transform: scale(1);
+}
+
+.hover:hover {
+  transition: all 0.2s;
+  color: rgb(201, 201, 201);
+}
+
 .experience-container-more {
   display: flex;
   flex-direction: column;

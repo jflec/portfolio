@@ -28,7 +28,7 @@ export default function Experience() {
               <div className="bulletpoint-container">
                 {experience.bulletpoints.map((bulletpoint, idx) => {
                   return (
-                    <h1 className="bulletpoint" key={idx}>
+                    <h1 className="bulletpoint hover" key={idx}>
                       {bulletpoint}
                     </h1>
                   );

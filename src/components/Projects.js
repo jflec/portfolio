@@ -56,7 +56,7 @@ export default function Projects() {
           return (
             <div className="project-container" key={idx}>
               <h1 className="project-name">{project.name}</h1>
-              <h2 className="project-desc">{project.desc}</h2>
+              <h2 className="project-desc hover">{project.desc}</h2>
 
               <div className="links-container">
                 <a href={project.live_url} target="_blank">

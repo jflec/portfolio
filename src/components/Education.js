@@ -25,7 +25,7 @@ export default function Education() {
             <div className="education-container" key={idx}>
               <h1 className="education-name">{education.name}</h1>
               <h2 className="education-date">{education.date}</h2>
-              <h2 className="education-desc">{education.desc}</h2>
+              <h2 className="education-desc hover">{education.desc}</h2>
             </div>
           );
         })}

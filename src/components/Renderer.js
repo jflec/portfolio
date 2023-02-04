@@ -1,5 +1,5 @@
 import { Canvas, extend, useFrame } from "@react-three/fiber";
-import { PerspectiveCamera, Effects, Cloud, Float } from "@react-three/drei";
+import { PerspectiveCamera, Effects, Cloud } from "@react-three/drei";
 import { UnrealBloomPass } from "three-stdlib";
 import { useRef, Suspense } from "react";
 import { Statue } from "./Statue";
@@ -12,39 +12,41 @@ extend({ UnrealBloomPass });
 export default function Renderer({ scrollPercentage }) {
   return (
     <div id="canvas-container">
-      <Canvas>
+      <Canvas
+        performance={{
+          current: 1,
+          min: 0.1,
+          max: 1,
+          debounce: 200,
+        }}
+      >
         <DynamicCamera scrollPercentage={scrollPercentage} />
         <Effects disableGamma>
           <unrealBloomPass threshold={1} strength={1} radius={1.2} />
         </Effects>
         <Cloud
           opacity={0.085}
-          speed={0.125}
+          speed={0.15}
           width={10}
           depth={1.3 + scrollPercentage / 100}
           segments={30}
         />
         <Suspense fallback={null}>
-          <Float speed={1} rotationIntensity={0.5} floatIntensity={0.4}>
-            <Shape
-              color={[4, 0.1, 0]}
-              position={[0, 0, -1]}
-              scrollPercentage={scrollPercentage}
-            >
-              <ringGeometry args={[0.8, 0.82, 4]} />
-            </Shape>
-            <Shape
-              color={[4, 0.1, 0]}
-              position={[0, 0, -1.1]}
-              scrollPercentage={scrollPercentage}
-            >
-              <ringGeometry args={[0.72, 0.8, 4]} />
-            </Shape>
-          </Float>
-
-          <Float speed={0.75} rotationIntensity={0.5} floatIntensity={0.4}>
-            <Statue position={[0.05, -0.5, 0]} />
-          </Float>
+          <Shape
+            color={[4, 0.1, 0]}
+            position={[0, 0, -1]}
+            scrollPercentage={scrollPercentage}
+          >
+            <ringGeometry args={[0.8, 0.82, 4]} />
+          </Shape>
+          <Shape
+            color={[4, 0.1, 0]}
+            position={[0, 0, -1.1]}
+            scrollPercentage={scrollPercentage}
+          >
+            <ringGeometry args={[0.72, 0.8, 4]} />
+          </Shape>
+          <Statue position={[0.05, -0.5, 0]} />
         </Suspense>
         <pointLight color={"white"} intensity={0.085} position={[0, 0, 2]} />
       </Canvas>
