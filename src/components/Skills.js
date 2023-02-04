@@ -31,7 +31,6 @@ export default function Skills() {
       </div>
 
       <div className="skills-container-more">
-        <h1 className="skill-title">Tools I've worked with</h1>
         <div className="skills-container">
           {skills.map((skill, idx) => {
             return (
