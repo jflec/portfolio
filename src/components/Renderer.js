@@ -21,7 +21,7 @@ export default function Renderer({ scrollPercentage }) {
         }}
       >
         <DynamicCamera scrollPercentage={scrollPercentage} />
-        {/* <Effects disableGamma>
+        <Effects disableGamma>
           <unrealBloomPass threshold={1} strength={1} radius={1.2} />
         </Effects>
         <Cloud
@@ -30,7 +30,7 @@ export default function Renderer({ scrollPercentage }) {
           width={10}
           depth={1.3 + scrollPercentage / 100}
           segments={30}
-        /> */}
+        />
         <Suspense fallback={null}>
           <Shape
             color={[4, 0.1, 0]}
