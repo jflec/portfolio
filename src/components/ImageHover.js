@@ -36,6 +36,7 @@ const ImageHover = ({ url, visible, children }) => {
           type="video/mp4"
           autoPlay
           muted
+          loop
           ref={imageRef}
           style={{
             position: "fixed",
