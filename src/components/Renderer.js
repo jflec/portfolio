@@ -61,6 +61,7 @@ function DynamicCamera({ scrollPercentage }) {
     cameraRef.current.lookAt(-scrollPercentage / 200, 0, 0);
     cameraRef.current.position.x = scrollPercentage / 50;
     cameraRef.current.position.z = 2 - scrollPercentage / 150;
+    cameraRef.current.position.y = -scrollPercentage / 150;
   });
 
   return (
