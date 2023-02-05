@@ -1,4 +1,3 @@
-import "../style/Skills.css";
 export default function Skills() {
   const skills = [
     "JavaScript",
@@ -25,13 +24,12 @@ export default function Skills() {
     "WebSocket",
   ];
   return (
-    <div id="skills-container">
-      <div className="skills-container-less">
+    <div className="component-container">
+      <div className="secondary-content-container">
         <h1>SKILLS</h1>
       </div>
-
-      <div className="skills-container-more">
-        <div className="skills-container">
+      <div className="main-content-container">
+        <div id="skill-container">
           {skills.map((skill, idx) => {
             return (
               <h1 className="skill" key={idx}>

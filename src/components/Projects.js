@@ -1,10 +1,8 @@
-import "../style/Projects.css";
+import RPB from "../videos/rpb.mp4";
+import AW from "../videos/aw.mp4";
+import SG from "../videos/sg.mp4";
 
-import RPB from "../rpb.mp4";
-import AW from "../aw.mp4";
-import SG from "../sg.mp4";
-
-export default function Projects({ setImage, setVisible }) {
+export default function Projects({ setVideo, setVisible }) {
   const projects = [
     {
       name: "RedPlayButton",
@@ -54,11 +52,11 @@ export default function Projects({ setImage, setVisible }) {
     },
   ];
   return (
-    <div id="projects-container">
-      <div className="projects-container-less">
+    <div className="component-container">
+      <div className="secondary-content-container">
         <h1>PROJECTS</h1>
       </div>
-      <div className="projects-container-more">
+      <div className="main-content-container  gap">
         {projects.map((project, idx) => {
           return (
             <div
@@ -66,16 +64,16 @@ export default function Projects({ setImage, setVisible }) {
               key={idx}
               onMouseEnter={() => {
                 setVisible(true);
-                setImage(project.videoUrl);
+                setVideo(project.videoUrl);
               }}
               onMouseLeave={() => {
                 setVisible(false);
               }}
             >
-              <h1 className="project-name">{project.name}</h1>
-              <h2 className="project-desc hover">{project.desc}</h2>
+              <h1 className="bold-header">{project.name}</h1>
+              <h2 className="hover">{project.desc}</h2>
 
-              <div className="links-container">
+              <div className="links-container project">
                 <a href={project.live_url} target="_blank">
                   live
                 </a>

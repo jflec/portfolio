@@ -4,9 +4,6 @@ import { UnrealBloomPass } from "three-stdlib";
 import { useRef, Suspense } from "react";
 import { Statue } from "./Statue";
 
-import "../style/Landing.css";
-import "../style/Renderer.css";
-
 extend({ UnrealBloomPass });
 
 export default function Renderer({ scrollPercentage }) {
@@ -22,7 +19,7 @@ export default function Renderer({ scrollPercentage }) {
       >
         <DynamicCamera scrollPercentage={scrollPercentage} />
         <Effects disableGamma>
-          <unrealBloomPass threshold={1} strength={1} radius={1.2} />
+          <unrealBloomPass threshold={1} strength={1} radius={1} />
         </Effects>
         <Cloud
           opacity={0.085}

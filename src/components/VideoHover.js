@@ -1,43 +1,42 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 
-import "../style/ImageHover.css";
-import "../style/Portfolio.css";
-
-const ImageHover = ({ url, visible, children }) => {
+const VideoHover = ({ url, visible, children }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [cursorX, setCursorX] = useState(0);
   const [cursorY, setCursorY] = useState(0);
-  const imageRef = useRef(false);
+  const videoRef = useRef(false);
 
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      if (imageRef.current) {
+  const handleMouseMove = useMemo(() => {
+    return (event) => {
+      if (videoRef.current) {
         setCursorX(event.clientX + 25);
-        setCursorY(event.clientY - imageRef.current.offsetHeight - 25);
+        setCursorY(event.clientY - videoRef.current.offsetHeight - 25);
       }
     };
+  }, [videoRef]);
 
+  useEffect(() => {
     document.addEventListener("mousemove", handleMouseMove);
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [handleMouseMove]);
 
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="image-hover"
+      className="video-hover"
     >
       {children}
 
-      {
+      {isHovered && visible && (
         <video
           type="video/mp4"
           autoPlay
           muted
           loop
-          ref={imageRef}
+          ref={videoRef}
           style={{
             position: "fixed",
             top: cursorY,
@@ -45,13 +44,11 @@ const ImageHover = ({ url, visible, children }) => {
           }}
           src={url}
           alt="Preview"
-          className={
-            isHovered && visible ? "preview-image" : "preview-image opacity"
-          }
+          className={"preview-video"}
         />
-      }
+      )}
     </div>
   );
 };
 
-export default ImageHover;
+export default VideoHover;

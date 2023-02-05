@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Renderer from "./components/Renderer";
 import Portfolio from "./components/Portfolio";
 
-import "./style/App.css";
+import "./style/general.css";
 
 function App() {
   const [scrollPercentage, setScrollPercentage] = useState(0);

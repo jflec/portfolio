@@ -6,12 +6,12 @@ import Experience from "./Experience";
 import Education from "./Education";
 import Skills from "./Skills";
 import Projects from "./Projects";
-import ImageHover from "./ImageHover";
+import VideoHover from "./VideoHover";
 
-import "../style/Portfolio.css";
+import Contact from "./Contact";
 
 export default function Portfolio() {
-  const [image, setImage] = useState(null);
+  const [video, setVideo] = useState(null);
   const [visible, setVisible] = useState(false);
   return (
     <div id="portfolio-container">
@@ -19,21 +19,23 @@ export default function Portfolio() {
       {checkMobile() ? (
         <div id="portfolio-section-container">
           <About />
-          <Experience setImage={setImage} setVisible={setVisible} />
+          <Experience setVideo={setVideo} setVisible={setVisible} />
           <Education />
           <Skills />
-          <Projects setImage={setImage} setVisible={setVisible} />
+          <Projects setVideo={setVideo} setVisible={setVisible} />
+          <Contact />
         </div>
       ) : (
-        <ImageHover url={image} visible={visible}>
+        <VideoHover url={video} visible={visible}>
           <div id="portfolio-section-container">
             <About />
-            <Experience setImage={setImage} setVisible={setVisible} />
+            <Experience setVideo={setVideo} setVisible={setVisible} />
             <Education />
             <Skills />
-            <Projects setImage={setImage} setVisible={setVisible} />
+            <Projects setVideo={setVideo} setVisible={setVisible} />
+            <Contact />
           </div>
-        </ImageHover>
+        </VideoHover>
       )}
     </div>
   );

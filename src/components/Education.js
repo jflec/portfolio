@@ -1,5 +1,3 @@
-import "../style/Education.css";
-
 export default function Education() {
   const education = [
     {
@@ -15,16 +13,16 @@ export default function Education() {
     },
   ];
   return (
-    <div id="education-container">
-      <div className="education-container-less">
+    <div className="component-container">
+      <div className="secondary-content-container">
         <h1>EDUCATION</h1>
       </div>
-      <div className="education-container-more">
+      <div className="main-content-container gap">
         {education.map((education, idx) => {
           return (
             <div className="education-container" key={idx}>
-              <h1 className="education-name">{education.name}</h1>
-              <h2 className="education-date">{education.date}</h2>
+              <h1 className="bold-header">{education.name}</h1>
+              <h2 className="semibold-subheader ">{education.date}</h2>
               <h2 className="education-desc hover">{education.desc}</h2>
             </div>
           );

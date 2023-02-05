@@ -1,14 +1,11 @@
-import "../style/About.css";
-
 export default function About() {
   return (
-    <div id="about-container">
-      <div className="about-container-less">
+    <div className="component-container">
+      <div className="secondary-content-container">
         <h1>ABOUT</h1>
       </div>
-
-      <div className="about-container-more">
-        <h1 className="about-title">Hi, I'm Joseph</h1>
+      <div className="main-content-container">
+        <h1 className="bold-header">Hi, I'm Joseph</h1>
         <p>
           <span className="hover">
             I'm a fullstack software engineer with an eye for design and a
@@ -24,7 +21,7 @@ export default function About() {
             music, and updating my portfolio site.
           </span>
         </p>
-        <div className="about-links-container">
+        <div className="links-container">
           <a href="https://github.com/JFlec" target="_blank">
             github
           </a>

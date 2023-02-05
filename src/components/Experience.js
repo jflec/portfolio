@@ -1,8 +1,6 @@
-import "../style/Experience.css";
+import SC from "../videos/sc.mp4";
 
-import SC from "../sc.mp4";
-
-export default function Experience({ setImage, setVisible }) {
+export default function Experience({ setVideo, setVisible }) {
   const experience = [
     {
       name: "Sock Club",
@@ -13,31 +11,30 @@ export default function Experience({ setImage, setVisible }) {
         "Developed a server-side service that generates 3D-rendered screenshots of an image on a sock using the provided image as input.",
         "Worked with designers to develop internal tools and improve user experience.",
       ],
-      imageUrl: SC,
+      videoUrl: SC,
     },
   ];
 
   return (
-    <div id="experience-container">
-      <div className="experience-container-less">
+    <div className="component-container">
+      <div className="secondary-content-container">
         <h1>EXPERIENCE</h1>
       </div>
-      <div className="experience-container-more">
+      <div className="main-content-container">
         {experience.map((experience, idx) => {
           return (
             <div
-              className="experience-container"
               key={idx}
               onMouseEnter={() => {
                 setVisible(true);
-                setImage(experience.imageUrl);
+                setVideo(experience.videoUrl);
               }}
               onMouseLeave={() => {
                 setVisible(false);
               }}
             >
-              <h1 className="experience-name">{experience.name}</h1>
-              <h2 className="experience-title">{experience.title}</h2>
+              <h1 className="bold-header">{experience.name}</h1>
+              <h2 className="semibold-subheader">{experience.title}</h2>
               <div className="bulletpoint-container">
                 {experience.bulletpoints.map((bulletpoint, idx) => {
                   return (
