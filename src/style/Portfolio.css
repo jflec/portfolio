@@ -21,8 +21,8 @@
   width: 90vw;
   max-width: 1000px;
   background: rgba(0, 0, 0, 0.233);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   border-top-left-radius: 42px;
   border-top-right-radius: 42px;
   gap: 12px;

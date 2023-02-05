@@ -7,5 +7,8 @@
 .preview-image {
   width: 360px;
   aspect-ratio: 16 / 9;
-  border-radius: 24px;
+}
+
+.opacity {
+  opacity: 0;
 }

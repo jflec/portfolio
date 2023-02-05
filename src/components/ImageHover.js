@@ -30,7 +30,8 @@ const ImageHover = ({ url, visible, children }) => {
       className="image-hover"
     >
       {children}
-      {isHovered && visible && (
+
+      {
         <video
           type="video/mp4"
           autoPlay
@@ -43,9 +44,11 @@ const ImageHover = ({ url, visible, children }) => {
           }}
           src={url}
           alt="Preview"
-          className="preview-image"
+          className={
+            isHovered && visible ? "preview-image" : "preview-image opacity"
+          }
         />
-      )}
+      }
     </div>
   );
 };
