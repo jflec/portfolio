@@ -8,7 +8,7 @@ export default function Experience({ setVideo, setVisible }) {
       bulletpoints: [
         "Led the development of a DIY design tool resulting in a 300% increase in revenue.",
         "Boosted production of custom sock designs by 500% per week.",
-        "Developed a server-side service that generates 3D-rendered screenshots of an image on a sock using the provided image as input.",
+        "Developed an internal API that generates 3D-rendered screenshots of a user’s design.",
         "Worked with designers to develop internal tools and improve user experience.",
       ],
       videoUrl: SC,
