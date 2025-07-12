@@ -5,20 +5,12 @@ export default function About() {
         <h1>ABOUT</h1>
       </div>
       <div className="main-content-container">
-        <h1 className="bold-header">Hi, I'm Joseph</h1>
+        <h1 className="bold-header">Hi, I'm Joe</h1>
         <p>
           <span className="hover">
-            I'm a fullstack software engineer with an eye for design and a
-            passion for continuous learning.
-          </span>{" "}
-          <span className="hover">
-            My interest in game development ignited my love for coding and led
-            me to pursue a certificate in Computer Programming and graduate from
-            App Academy.
-          </span>{" "}
-          <span className="hover">
-            In my free time, you can find me gaming with friends, listening to
-            music, and updating my portfolio site.
+            I'm a full-stack software engineer obsessed with creating digital
+            experiences that are as beautiful on the inside as they are on the
+            outside.
           </span>
         </p>
         <div className="links-container">
