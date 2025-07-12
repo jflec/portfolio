@@ -189,9 +189,12 @@ body {
   width: 70%;
 }
 
-.preview-video {
-  aspect-ratio: 16 / 9;
-  width: 360px;
+.experience-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 36px;
 }
 
 .secondary-content-container {
@@ -236,10 +239,6 @@ body {
 
   .main-content-container {
     width: calc(100% - 80px);
-  }
-
-  .preview-video {
-    display: none;
   }
 
   .projects-container-more {
