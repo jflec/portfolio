@@ -77,7 +77,7 @@ export default function Renderer() {
             luminanceSmoothing={0.83}
           />
           <HueSaturation
-            hue={Math.sin(Date.now() * 0.005) * 2} // cycles hue over time
+            hue={Math.sin(Date.now() * 0.005) * 2}
             saturation={0.25}
           />
         </EffectComposer>

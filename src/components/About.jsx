@@ -9,8 +9,7 @@ export default function About() {
         <p>
           <span className="hover">
             I'm a full-stack software engineer obsessed with creating digital
-            experiences that are as beautiful on the inside as they are on the
-            outside.
+            experiences that are as beautiful as they are functional.
           </span>
         </p>
         <div className="links-container">
