@@ -4,19 +4,20 @@ export default function Experience() {
       name: "BigChadGuys",
       title: "Software Engineer",
       bulletpoints: [
-        "Independently created compelling promotional and educational content, garnering 40+ million views and 20 million total downloads.",
-        "Leveraged Java expertise to design, develop, and consistently update the BigChadGuys modpacks.",
-        "Fostered productive collaborations with artists, developers, and writers to enhance project quality and innovation.",
+        "Scaled the BigChadGuys venture to ~$100K in monthly revenue by leveraging community engagement.",
+        "Created compelling promotional and educational content, garnering 40M+ views and 25M+ downloads across platforms.",
+        "Developed and maintained BigChadGuys projects in Java, releasing regular updates and new features.",
+        "Coordinated with artists, developers, and writers to ensure high product quality and drive creative innovation",
       ],
     },
     {
       name: "Sock Club",
       title: "Fullstack Software Engineer",
       bulletpoints: [
-        "Spearheaded the development of an innovative DIY design tool, resulting in a 300% increase in revenue and a 500% surge in user engagement.",
-        "Pioneered an internal API for generating 3D-rendered screenshots of user designs, streamlining workflows.",
-        "Partnered with design teams to create internal tools and optimize user experience.",
-        "Revamped website for seamless mobile compatibility.",
+        "Spearheaded development of an innovative DIY design tool, leading to a 3x increase in revenue and a 5x surge in user retention.",
+        "Pioneered an internal API to generate 3D-rendered images of user designs, streamlining design workflows and automation.",
+        "Revamped the company website for seamless mobile compatibility, improving cross-device user experience and accessibility.",
+        "Worked with design teams to develop internal tools and enhance the overall intake pipeline.",
       ],
     },
   ];

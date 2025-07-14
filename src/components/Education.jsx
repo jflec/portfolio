@@ -11,6 +11,11 @@ export default function Education() {
       date: "Summer 2020",
       desc: "Certificate of Computer Programming - Magnum Cum Laude",
     },
+    {
+      name: "College Park High School",
+      date: "Fall 2019",
+      desc: "High School Diploma",
+    },
   ];
   return (
     <div className="component-container">
