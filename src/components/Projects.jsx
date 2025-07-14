@@ -3,7 +3,7 @@ export default function Projects() {
     {
       name: "RedPlayButton",
       github_url: "https://github.com/JFlec/RedPlayButton",
-      desc: "A video-sharing platform that mimics the functionality and aesthetic of YouTube, allowing users to upload, view, share, and comment on videoes.",
+      desc: "A video-sharing platform that mimics the functionality and aesthetic of YouTube.",
       skills: [
         "React",
         "Redux",
@@ -20,7 +20,7 @@ export default function Projects() {
     {
       name: "anyWajers",
       github_url: "https://github.com/james625/anyWajers",
-      desc: "A social platform aimed at connecting gamers and facilitating the search for individuals to play games with for users.",
+      desc: "A social platform aimed at connecting gamers.",
       skills: [
         "React",
         "Redux",
@@ -37,7 +37,7 @@ export default function Projects() {
     {
       name: "Slime Guy",
       github_url: "https://github.com/JFlec/Slime-Guy",
-      desc: "A fun and addictive platformer game inspired by Doodle Jump, where the player must navigate through the dangerous realms of hell while shooting and defeating a variety of enemies on their ascent.",
+      desc: "A fun and addictive platformer game inspired by Doodle Jump.",
       skills: ["Javascript", "HTMl", "CSS"],
     },
   ];
